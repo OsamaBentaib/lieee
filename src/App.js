@@ -22,6 +22,7 @@ function App() {
   // this will recalcule the image positions everytime the window changed!
   useEffect(() => {
     resize();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [windowResize]);
   /***
    * here when the magic happend
@@ -29,15 +30,15 @@ function App() {
    *  - calc the latest mouse position and the new position
    *    if the the distance more than 100px then we will show the
    *    new image!
-   * 
+   *
    */
   useEffect(() => {
     animation();
-    //
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [mousePos]);
   const getMouseDistance = () =>
     MathUtils.distance(mousePos.x, mousePos.y, lastMousePos.x, lastMousePos.y);
-  
+
   const defaultStyle = {
     scale: 1,
     x: 0,
@@ -62,7 +63,7 @@ function App() {
   };
   // upcoming image index
   const [imgPosition, setImgPosition] = useState(0);
-  // zIndex value to apply to the upcoming image 
+  // zIndex value to apply to the upcoming image
   const [zIndexVal, setzIndexVal] = useState(1);
   const animation = () => {
     const imagesTotal = images.current.length;
